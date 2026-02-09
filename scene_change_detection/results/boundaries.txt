@@ -1,0 +1,6 @@
+Detected Shot Transitions:
+Frame 149
+Frame 299
+Frame 449
+Frame 621
+Frame 747
