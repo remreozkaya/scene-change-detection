@@ -1,0 +1,31 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.$py.class
+
+# Distribution / packaging
+.Python
+env/
+venv/
+ENV/
+.build/
+
+dist/
+build/
+
+# Jupyter Notebook
+.ipynb_checkpoints/
+*.ipynb
+
+# macOS
+.DS_Store
+
+# Virtual environment
+.Pipfile.lock
+
+# IDEs
+.vscode/
+.idea/
+
+# Temporary
+*.log
