@@ -19,34 +19,83 @@ The system is designed to detect hard cuts between scenes. Instead of using buil
 - Frames are resized to 320x180
 - Each frame is stored as a 2D matrix
 
-### 2. Candidate Detection via TAD
-For consecutive frames F_i and F_(i+1):
+---
 
-TAD(F_i, F_(i+1)) = sum(|F_i(r,c) - F_(i+1)(r,c)|)
+### 2. Candidate Detection via TAD
+
+For consecutive frames:
+
+$$
+TAD(F_i, F_{i+1}) = \sum_{r,c} |F_i(r,c) - F_{i+1}(r,c)|
+$$
 
 If:
-    TAD > tad_threshold
+
+$$
+TAD(F_i, F_{i+1}) > \text{tad_threshold}
+$$
 
 The frame is marked as a candidate transition.
 
 Default threshold:
-    tad_threshold = 1000000
+
+$$
+\text{tad_threshold} = 1{,}000{,}000
+$$
+
+---
 
 ### 3. Transition Confirmation via Custom SVD
+
 For each candidate frame:
-1. Compute A^T A
-2. Apply QR iteration to approximate eigenvalues
-3. Compute singular values: sigma_i = sqrt(lambda_i)
-4. Construct singular value vectors
-5. Compute Euclidean distance between consecutive singular value vectors
+
+1. Compute:
+
+$$
+A^T A
+$$
+
+2. Apply QR iteration:
+
+$$
+A_k = Q_k R_k
+$$
+
+$$
+A_{k+1} = R_k Q_k
+$$
+
+3. After convergence:
+
+$$
+\lambda_i \rightarrow \text{eigenvalues}
+$$
+
+4. Compute singular values:
+
+$$
+\sigma_i = \sqrt{\lambda_i}
+$$
+
+5. Compare singular value vectors using Euclidean distance:
+
+$$
+d = \| \Sigma_i - \Sigma_{i+1} \|_2
+$$
 
 If:
-    distance > svd_threshold
+
+$$
+d > \text{svd_threshold}
+$$
 
 The frame is confirmed as a scene boundary.
 
 Default threshold:
-    svd_threshold = 300
+
+$$
+\text{svd_threshold} = 300
+$$
 
 The program outputs the last frame of each detected scene.
 
@@ -68,10 +117,10 @@ The program outputs the last frame of each detected scene.
 ---
 
 ## Project Structure
-main.py        → Video processing pipeline
-svd.py         → Custom QR-based SVD implementation
-results/       → Output boundary frames
-boundaries.txt → Detected scene indices
+main.py        → Video processing pipeline  
+svd.py         → Custom QR-based SVD implementation  
+results/       → Output boundary frames  
+boundaries.txt → Detected scene indices  
 
 ---
 
@@ -96,5 +145,5 @@ Ensure the input video path is correctly set in main.py.
 ---
 
 ## Academic Context
-Developed for BLG202E – Numerical Methods in Computer Engineering
+Developed for BLG202E – Numerical Methods in Computer Engineering  
 Istanbul Technical University
