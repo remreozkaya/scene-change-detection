@@ -39,9 +39,7 @@ The frame is marked as a candidate transition.
 
 Default threshold:
 
-$$
-\text{tad_threshold} = 1{,}000{,}000
-$$
+tad_threshold = 1000000
 
 ---
 
@@ -93,9 +91,7 @@ The frame is confirmed as a scene boundary.
 
 Default threshold:
 
-$$
-\text{svd_threshold} = 300
-$$
+svd_threshold = 300
 
 The program outputs the last frame of each detected scene.
 
