@@ -24,6 +24,7 @@ def read_video_frames(video_path):
     cap.release()
     return frames
 
+
 def compute_tad(f1, f2):
     tad = 0
     for r in range(len(f1)):  # Iterate over rows
@@ -67,6 +68,7 @@ def euclidean_distance(v1, v2):
     # Return the Euclidean distance
     return distance
 
+
 def detect_candidates(frames, threshold):
     candidates = []
 
@@ -81,8 +83,8 @@ def detect_candidates(frames, threshold):
     return candidates
 
 
-# Function to confirm actual scene transitions from candidate frames by comparing their singular value vectors using Euclidean distance
 
+# Function to confirm actual scene transitions from candidate frames by comparing their singular value vectors using Euclidean distance
 def confirm_transitions(frames, candidates, threshold, k=5):
     features = {} # Dictionary to store top-k singular values of required frames
     confirmed = [] # List to hold indices of confirmed transitions
@@ -106,6 +108,7 @@ def confirm_transitions(frames, candidates, threshold, k=5):
 
     # Return the confirmed frames
     return confirmed
+
 
 # Sve the results in a folder
 def save_boundary_results(frames, boundaries, output_dir="results"):
@@ -138,6 +141,5 @@ def main():
     print("Results saved to 'results/'")
 
 
-# Start the main function
 if __name__ == "__main__":
     main()
