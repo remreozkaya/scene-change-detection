@@ -32,7 +32,7 @@ $$
 If:
 
 $$
-TAD(F_i, F_{i+1}) > \text{tad_threshold}
+TAD(F_i, F_{i+1}) > tad_threshold
 $$
 
 The frame is marked as a candidate transition.
@@ -83,9 +83,7 @@ $$
 
 If:
 
-$$
-d > \text{svd_threshold}
-$$
+d > svd_threshold
 
 The frame is confirmed as a scene boundary.
 
